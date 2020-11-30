@@ -102,6 +102,13 @@
     line-height: 1.2;
   }
 
+
+  .btn-danger {
+    color: #fff;
+    background-color: #DA291C;
+    border-color: #DA291C;
+}
+
   @media (max-width: 1200px) {
     .link-title {
       font-size: 2.5rem;
@@ -225,140 +232,141 @@
     <script src="./Video Adecco_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
-      $(function () {
-        var link1Displayed = false;
-        var link2Displayed = false;
-        console.log(screen.width);
 
-        if (screen.width < 749) {
-          $("#video").attr(
-            "src",
-            "https://janedoe.es/adeco/video/video01-xs.mp4"
-          );
-        } else {
-          $("#video").attr("src", "https://janedoe.es/adeco/video/video01.mp4");
-        }
+          $(function () {
+            var link1Displayed = false;
+            var link2Displayed = false;
+            console.log(screen.width);
 
-        if (ios()) {
-          //hide play button
-          $(".video-container .play").hide();
-          hidePlayButton();
-          play();
-        }
+           $(window).on("orientationchange",function(){location.reload();});
 
-        // Play on start
-        $("body").click(function () {
-          play();
-        });
+        if(window.matchMedia("(orientation: portrait)").matches){
+        $("#video").attr("src", "https://janedoe.es/adeco/video/video01-xs.mp4");
+            }else{
+              $("#video").attr("src", "https://janedoe.es/adeco/video/video01.mp4");
+    }
 
-        $("#video").on("timeupdate", function () {
-          if (isVideo1()) {
-            var duration = $(this)[0].duration;
-            var currentTime = $(this)[0].currentTime;
-            if (currentTime > 41 && !link1Displayed) {
-              console.log(currentTime);
-              showLink1();
+            if (ios()) {
+              //hide play button
+              $(".video-container .play").hide();
+              hidePlayButton();
+              play();
             }
-            else if (currentTime > 39 && !link2Displayed) {
-              showLink2();
+
+            // Play on start
+            $("body").click(function () {
+              play();
+            });
+
+            $("#video").on("timeupdate", function () {
+              if (isVideo1()) {
+                var duration = $(this)[0].duration;
+                var currentTime = $(this)[0].currentTime;
+                if (currentTime > 41 && !link1Displayed) {
+                  console.log(currentTime);
+                  showLink1();
+                }
+                else if (currentTime > 39 && !link2Displayed) {
+                  showLink2();
+                }
+                // else {
+                //   hideLinks();
+                // }
+              }
+            });
+
+            /*$("#video").on("ended", function () {
+              end();
+            });
+
+            $(".row1  a").on("click", function () {
+              play("https://janedoe.es/adeco/video/video02.mp4");
+            });
+
+            $(".row2  a").on("click", function () {
+              play("https://janedoe.es/adeco/video/video03.mp4");
+            });
+            */
+            //play();
+
+            function play(videoSrc) {
+              if (videoSrc) {
+                $("#video").attr("src", videoSrc);
+              }
+              $("#video")[0].play();
+              hidePlayButton();
+              hideLinks();
             }
-            // else {
-            //   hideLinks();
+
+            function end() {
+              exitFullScreen();
+              isVideo1() ? showLinks() : showForm();
+            }
+
+            // function showLinks() {
+            //   $(".video-container .links").show();
+            //   linksDisplayed = true;
             // }
-          }
-        });
 
-        /*$("#video").on("ended", function () {
-          end();
-        });
+            function showLink1() {
+              $(".video-container .links").show();
+              $(".video-container .link1").show();
+              link1Displayed = true;
+            }
 
-        $(".row1  a").on("click", function () {
-          play("https://janedoe.es/adeco/video/video02.mp4");
-        });
+            function showLink2() {
+              $(".video-container .links").show();
+              $(".video-container .link2").show();
+              link2Displayed = true;
+            }
 
-        $(".row2  a").on("click", function () {
-          play("https://janedoe.es/adeco/video/video03.mp4");
-        });
-        */
-        //play();
+            function hideLinks() {
+              $(".video-container .links").hide();
+              link1Displayed = false;
+              link2Displayed = false;
+            }
 
-        function play(videoSrc) {
-          if (videoSrc) {
-            $("#video").attr("src", videoSrc);
-          }
-          $("#video")[0].play();
-          hidePlayButton();
-          hideLinks();
-        }
+            function hidePlayButton() {
+              $(".video-container .play").hide();
+            }
 
-        function end() {
-          exitFullScreen();
-          isVideo1() ? showLinks() : showForm();
-        }
+            function showForm() {
+              $(".video-container .video-form").show();
+              $("#video").css("filter", "opacity(50%)");
+            }
 
-        // function showLinks() {
-        //   $(".video-container .links").show();
-        //   linksDisplayed = true;
-        // }
+            function isVideo1() {
+              return $("#video").attr("src").indexOf("video01") > -1;
+            }
 
-        function showLink1() {
-          $(".video-container .links").show();
-          $(".video-container .link1").show();
-          link1Displayed = true;
-        }
+            function exitFullScreen() {
+              if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen(); // Blink
+              }
+              if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen(); // Gecko
+              }
+              if (document.msExitFullscreen) {
+                document.msExitFullscreen(); // Old IE
+              }
+            }
 
-        function showLink2() {
-          $(".video-container .links").show();
-          $(".video-container .link2").show();
-          link2Displayed = true;
-        }
+            function ios() {
+              return (
+                [
+                  "iPad Simulator",
+                  "iPhone Simulator",
+                  "iPod Simulator",
+                  "iPad",
+                  "iPhone",
+                  "iPod",
+                ].includes(navigator.platform) ||
+                // iPad on iOS 13 detection
+                (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+              );
+            }
+          });
 
-        function hideLinks() {
-          $(".video-container .links").hide();
-          link1Displayed = false;
-          link2Displayed = false;
-        }
-
-        function hidePlayButton() {
-          $(".video-container .play").hide();
-        }
-
-        function showForm() {
-          $(".video-container .video-form").show();
-          $("#video").css("filter", "opacity(50%)");
-        }
-
-        function isVideo1() {
-          return $("#video").attr("src").indexOf("video01") > -1;
-        }
-
-        function exitFullScreen() {
-          if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen(); // Blink
-          }
-          if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen(); // Gecko
-          }
-          if (document.msExitFullscreen) {
-            document.msExitFullscreen(); // Old IE
-          }
-        }
-
-        function ios() {
-          return (
-            [
-              "iPad Simulator",
-              "iPhone Simulator",
-              "iPod Simulator",
-              "iPad",
-              "iPhone",
-              "iPod",
-            ].includes(navigator.platform) ||
-            // iPad on iOS 13 detection
-            (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-          );
-        }
-      });
     </script>
 
 

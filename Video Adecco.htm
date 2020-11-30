@@ -1,116 +1,147 @@
 <!DOCTYPE html>
-<!-- saved from url=(0031)https://rfvallina.com/videoapp/ -->
 <html lang="es" class="js-focus-visible" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Video Adecco</title>
     <!-- Required meta tags -->
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./Video Adecco_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <!-- Custom CSS -->
-    <style type="text/css">
-      body {
-        background-color: #ccc;
-      }
-
-      .video-container {
-        overflow: hidden;
-        text-align: center;
-      }
-
-      .video-container video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9;
-      }
-
-      .video-container .video-row {
-        position: absolute;
-        background-color: #ccc;
-        height: 100vh;
-        width: 100vw;
-      }
-
-      .video-container .links {
-        display: none;
-      }
-
-      .video-form {
-        display: none;
-        padding-left: 30%;
-        padding-right: 30%;
-        color: #000;
-        top: 30%;
-      }
-
-      .video-container a {
-        z-index: 99;
-      }
-
-      .video-container .video-col-left {
-        float: left;
-        width: 50%;
-        position: relative;
-        top: 30%;
-        padding-left: 20%;
-      }
-
-      .link-row {
-        padding-top: 40px;
-      }
-
-      .video-container .video-col {
-        position: relative;
-        top: 35%;
-      }
-
-      /* .video-container .video-col-right {
-        float: right;
-        width: 50%;
-        position: relative;
-        top: 50%;
-        padding-right: 20%;
-      } */
-
-      .video-container .video-row a {
-        color: #000;
-        position: relative;
-        top: 50%;
-      }
-
-      .link-title {
-        font-size: 3.5rem;
-        font-weight: 300;
-        line-height: 1.2;
-      }
-
-      @media (max-width: 1200px) {
-        .link-title {
-          font-size: 2.5rem;
-          font-weight: 300;
-        }
-      }
-
-      @media (max-width: 800px) {
-        .link-title {
-          font-size: 1.5rem;
-          font-weight: 200;
-        }
-      }
-
-      @media (max-width: 320px) {
-        .link-title {
-          font-size: 1rem;
-          font-weight: 200;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./Video Adecco_files/master.css">
   <style type="text/css">
+  body {
+    background-color: #fff;
+    font-family: 'Dosis', sans-serif;
+  }
+
+  .video-container {
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+  }
+
+  .video-container .video-row {
+    position: absolute;
+    background-color: #ccc;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .video-container .links {
+    display: none;
+  }
+
+  .video-form {
+    display: none;
+    padding-left: 30%;
+    padding-right: 30%;
+    color: #000;
+    top: 30%
+  }
+
+  .video-container a {
+    z-index: 99;
+  }
+
+  /* .video-form form {
+    border: solid #737171;
+    padding: 20px;
+  } */
+
+  .video-container .video-col-left {
+    float: left;
+    width: 50%;
+    position: relative;
+    top: 70%;
+    padding-left: 20%;
+  }
+
+  .link-row {
+    padding-top: 40px;
+  }
+
+  .video-container .video-col {
+    position: relative;
+    top: 35%;
+  }
+
+ .video-container .video-col-right {
+    float: right;
+    width: 50%;
+    position: relative;
+    top: 70%;
+    padding-right: 20%;
+  }
+
+  .video-container .video-row a {
+    color: #000;
+    position: relative;
+    top: 50%;
+
+  }
+
+  .link-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 1200px) {
+    .link-title {
+      font-size: 2.5rem;
+      font-weight: 300;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .link-title {
+      font-size: 1.5rem;
+      font-weight: 200;
+    }
+    .video-container .video-col-right {
+
+       float: right;
+       width: 50%;
+       position: relative;
+       top: 60%;
+       padding: 5px;
+     }
+     .video-container .video-col-left {
+       float: left;
+       width: 50%;
+       position: relative;
+       top: 60%;
+       padding: 5px;
+     }
+     .btn-group-lg>.btn, .btn-lg{
+       font-size: 1rem;
+     }
+  }
+
+  @media (max-width: 320px) {
+    .link-title {
+      font-size: 1rem;
+      font-weight: 200;
+    }
+  }
+
+
 @font-face {
   font-weight: 400;
   font-style:  normal;
@@ -141,22 +172,29 @@
   font-family: 'Circular-Loom';
 
   src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
-}</style></head>
+}
+</style>
+
+<script src="https://use.fontawesome.com/6b1e82bfbe.js"></script>
+</head>
+
   <body>
     <div class="video-container">
       <video id="video" src="https://janedoe.es/adeco/video/video01.mp4" autoplay="" playsinline=""></video>
-      <div class="video-row play" style="display: none;">
+      <div class="video-row play">
         <div class="video-col">
-          <a href="https://rfvallina.com/videoapp/#" class="link-play"><img width="100px" height="100px" src="./Video Adecco_files/play.svg"></a>
+          <a href="#" class="link-play"><i style="color:#da291c" class="fa fa-play fa-5x" aria-hidden="true" ></i></a>
         </div>
       </div>
       <div class="video-row links" style="display: none;">
         <div class="video-col-left">
-          <div class="link-row row1">
-            <a href="https://rfvallina.com/videoapp/#" class="link-title">Pincha aquí</a>
+          <div class="link-row row1 link1" style="display: none;">
+            <a href="https://empresa.adecco.es/l/510071/2020-11-03/3zbj4c6" class="link-title"><button type="button" class="btn btn-danger btn-lg"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Saber más sobre Formación</button></a>
           </div>
-          <div class="link-row row2">
-            <a href="https://rfvallina.com/videoapp/#" class="link-title">Pincha aquí</a>
+        </div>
+        <div class="video-col-right">
+          <div class="link-row row2 link2" style="display: none;">
+            <a href="https://empresa.adecco.es/l/510071/2020-11-03/3zbj4c6" class="link-title"><button type="button" class="btn btn-danger btn-lg"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Saber más sobre Trabajo Temporal</button></a>
           </div>
         </div>
       </div>
@@ -169,33 +207,37 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./Video Adecco_files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="./Video Adecco_files/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="./Video Adecco_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
       $(function () {
-        var linksDisplayed = false;
+        var link1Displayed = false;
+        var link2Displayed = false;
         console.log(screen.width);
 
         if (screen.width < 749) {
-          playVertical();
+          $("#video").attr(
+            "src",
+            "https://janedoe.es/adeco/video/video01-xs.mp4"
+          );
         } else {
-          playHorizontal();
+          $("#video").attr("src", "https://janedoe.es/adeco/video/video01.mp4");
         }
-
-        window.addEventListener(
-          "orientationchange",
-          function () {
-            console.log(window.orientation);
-            if (window.orientation == 0) {
-              playVertical();
-            } else {
-              playHorizontal();
-            }
-          },
-          false
-        );
 
         if (ios()) {
           //hide play button
@@ -213,15 +255,22 @@
           if (isVideo1()) {
             var duration = $(this)[0].duration;
             var currentTime = $(this)[0].currentTime;
-            if (currentTime + 5 > duration) {
-              showLinks();
-            } else {
-              hideLinks();
+            if (currentTime > 41 && !link1Displayed) {
+              console.log(currentTime);
+              showLink1();
             }
+            else if (currentTime > 39 && !link2Displayed) {
+              showLink2();
+            }
+            // else {
+            //   hideLinks();
+            // }
           }
         });
 
-        $("#video").on("ended", end);
+        /*$("#video").on("ended", function () {
+          end();
+        });
 
         $(".row1  a").on("click", function () {
           play("https://janedoe.es/adeco/video/video02.mp4");
@@ -230,24 +279,8 @@
         $(".row2  a").on("click", function () {
           play("https://janedoe.es/adeco/video/video03.mp4");
         });
-
-        function updateCurrentTime() {
-          if (currentTime) {
-            $("#video")[0].currentTime = currentTime;
-          }
-        }
-
-        function playVertical() {
-          var currentTime = $("#video")[0].currentTime;
-          play("https://janedoe.es/adeco/video/video01-xs.mp4");
-          $("#video")[0].currentTime = currentTime;
-        }
-
-        function playHorizontal() {
-          var currentTime = $("#video")[0].currentTime;
-          play("https://janedoe.es/adeco/video/video01.mp4");
-          $("#video")[0].currentTime = currentTime;
-        }
+        */
+        //play();
 
         function play(videoSrc) {
           if (videoSrc) {
@@ -263,14 +296,27 @@
           isVideo1() ? showLinks() : showForm();
         }
 
-        function showLinks() {
+        // function showLinks() {
+        //   $(".video-container .links").show();
+        //   linksDisplayed = true;
+        // }
+
+        function showLink1() {
           $(".video-container .links").show();
-          linksDisplayed = true;
+          $(".video-container .link1").show();
+          link1Displayed = true;
+        }
+
+        function showLink2() {
+          $(".video-container .links").show();
+          $(".video-container .link2").show();
+          link2Displayed = true;
         }
 
         function hideLinks() {
           $(".video-container .links").hide();
-          linksDisplayed = false;
+          link1Displayed = false;
+          link2Displayed = false;
         }
 
         function hidePlayButton() {
@@ -314,6 +360,6 @@
         }
       });
     </script>
-  
 
-</body><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
+
+</body>

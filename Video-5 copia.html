@@ -238,13 +238,26 @@
             var link2Displayed = false;
             console.log(screen.width);
 
-           $(window).on("orientationchange",function(){location.reload();});
+
 
         if(window.matchMedia("(orientation: portrait)").matches){
-        $("#video").attr("src", "https://janedoe.es/adeco/video/video01-xs.mp4");
+        playVertical();
             }else{
-              $("#video").attr("src", "https://janedoe.es/adeco/video/video01.mp4");
+              playHorizontal();
     }
+
+    window.addEventListener(
+        "orientationchange",
+        function () {
+          console.log(window.orientation);
+          if (window.orientation == 0) {
+            playVertical();
+          } else {
+            playHorizontal();
+          }
+        },
+        false
+      );
 
             if (ios()) {
               //hide play button
@@ -288,6 +301,24 @@
             });
             */
             //play();
+
+            function updateCurrentTime() {
+          if (currentTime) {
+            $("#video")[0].currentTime = currentTime;
+          }
+        }
+
+        function playVertical() {
+          var currentTime = $("#video")[0].currentTime;
+          play("https://janedoe.es/adeco/video/video01-xs.mp4");
+          $("#video")[0].currentTime = currentTime;
+        }
+
+        function playHorizontal() {
+          var currentTime = $("#video")[0].currentTime;
+          play("https://janedoe.es/adeco/video/video01.mp4");
+          $("#video")[0].currentTime = currentTime;
+        }
 
             function play(videoSrc) {
               if (videoSrc) {
